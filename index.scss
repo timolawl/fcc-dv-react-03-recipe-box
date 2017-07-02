@@ -1,0 +1,211 @@
+@import url('//fonts.googleapis.com/css?family=Quicksand|Francois+One|Open+Sans'); 
+
+*, :before, :after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  font-family: 'Open Sans';
+}
+
+body {
+  background: #dde3b4;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.box {
+  position: absolute;
+  left: calc(50% - 25px);
+  margin-left: -350px;
+  top: 5%;
+}
+
+.recipe {
+  &__boxwrap {
+    width: 350px;
+    overflow: hidden;
+    border: 4px solid black;
+    border-top: none;
+  }
+  &__header {
+    font-family: 'Francois One';
+    display: block;
+    padding: 0.25rem;
+    background: #444;
+    font-size: 2rem;
+    text-align: center;
+   // letter-spacing: 0.04rem;
+    text-transform: uppercase;
+ 
+    &--box {
+      width: 370px;
+      margin-left: -10px;
+      border: 6px solid black;
+      color: white;
+    }
+    &--card {
+      width: 100%;
+      color: white;
+    }
+  }
+  &__name {
+    
+    display: block;
+    width: 100%; //400px;
+    padding: 0.25rem 1rem;
+    background: #bcc75e; 
+    font-size: 1.2rem;
+    &--box {
+      cursor: pointer;
+    }
+    &--card {
+      background: #3d7a4f;
+      text-align: center;
+    }
+    
+    &:hover {
+      background: #3d7a4f;
+    }
+  }
+  &__ingredients {
+    width: 100%; //400px;
+    height: calc(95vh - 140px);
+    min-height: 240px;
+    padding: 1rem 2rem;
+    background: #fee169;
+  }
+  &__ingredient {
+    font-family: 'Open Sans';
+  }
+  &__edit {
+    display: inline-block;
+    width: 50%;
+    height: 24px;   
+    border: none;
+    outline: none;
+    background: #a6a6a6;
+    cursor: pointer;
+    font-weight: bold;
+    &:hover {
+      background: #ccc; //lighten(#ccc, 5%);
+    }
+    &:active {
+      background: lighten(#ccc, 10%);
+    }
+    
+  }
+   &__delete {
+    display: inline-block;
+    width: 50%;
+    height: 24px;
+    border: none;
+    outline: none;
+    background: #900; //#ac0019;
+    cursor: pointer;
+    font-weight: bold;
+    &:hover {
+      background: #cc0000; //lighten(#ac0019, 15%);
+    }
+    &:active {
+      background: #ff0000; //lighten(#ac0019, 20%);
+    }
+  }
+  
+  &__form {
+    display: block;
+    margin-top: 5%;
+    width: 350px;
+    border: 4px solid #612821;
+  }
+  
+  &__input {
+    &--name {
+      display: block;
+      width: 100%;
+      height: 24px;
+      border: none;
+      outline: none;
+      padding-left: 1rem;
+      background: #dde3b4;
+      &:hover {
+        background: white;
+      }
+      &:focus {
+        background: white;
+      }
+    }
+    
+    &--ingredients {
+      display: block;
+      width: 100%;
+      height: 24px;
+      border: none;
+      outline: none;
+      padding-left: 1rem;
+      background: #dde3b4;
+      &:hover {
+        background: white;
+      }
+      &:focus {
+        background: white;
+      }
+    }
+    &--submit {
+      display: block;
+      width: 100%;
+      height: 36px;
+      cursor: pointer;
+      border: none;
+      //fix for iOS default button style
+      -webkit-border-radius: 0;
+      border-radius: 0;
+      -webkit-appearance: none;
+      
+      outline: none;
+      background: #612821;
+      font-family: 'Francois One';
+      text-transform: uppercase;
+      color: white;
+      &:hover {
+        background: lighten(#612821, 10%);
+      }
+      &:active {
+        background: lighten(#612821, 20%);
+      }
+    }
+  }
+}
+
+
+.active {
+  background: #3d7a4f;
+}
+
+.card {
+  position: absolute;
+  left: 350px + 50px;
+  top: 0;
+  width: 350px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+ 
+}
+
+
+// Accordion stuff:
+input[type='radio'] {
+  display: none;
+}	
+	
+.recipe__contents {
+  display:none;
+}
+
+input[type='radio']:checked + label {
+  background: #3d7a4f;
+  font-weight: bold;
+}
+
+input[type='radio']:checked + label + .recipe__contents {
+	display:block;
+}
